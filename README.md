@@ -42,7 +42,7 @@ import bentoml
 from pathlib import Path
 
 with bentoml.SyncHTTPClient("http://localhost:3000") as client:
-    result = client.encode_image(
+    result = client.classify(
         images=[
             Path("cat1.jpg"),
         ],
