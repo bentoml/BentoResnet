@@ -5,7 +5,7 @@ from PIL.Image import Image
 import bentoml
 
 
-MODEL_ID = "microsoft/resnet-50"
+BENTOML_MODEL_TAG = "resnet-50"
 
 @bentoml.service(
     name="bentoresnet",
@@ -19,13 +19,19 @@ MODEL_ID = "microsoft/resnet-50"
     },
 )
 class Resnet:
-    
+
+    bento_model_ref = bentoml.models.get(BENTOML_MODEL_TAG)
+
     def __init__(self) -> None:
         from transformers import AutoImageProcessor, ResNetForImageClassification
         import torch
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.model = ResNetForImageClassification.from_pretrained(MODEL_ID).to(self.device)
-        self.processor = AutoImageProcessor.from_pretrained("microsoft/resnet-50")
+        self.model = ResNetForImageClassification.from_pretrained(
+            self.bento_model_ref.path_of("model")
+        ).to(self.device)
+        self.processor = AutoImageProcessor.from_pretrained(
+            self.bento_model_ref.path_of("processor")
+        )
         print("Model resnet loaded", "device:", self.device)
 
     @bentoml.api(batchable=True)
