@@ -14,10 +14,16 @@ pip install -r requirements.txt
 
 ## Run the BentoML Service
 
+This repo demonstrates pulling the the model weights from Hugging Face and storing them in the BentoML model store. It allows you to gain full control over the model weights and leverage model loading acceleration during a container cold start. To download and store the model weights in the BentoML model store, run the `import_model.py` script.
+
+```bash
+python import_model.py
+```
+
 We have defined a BentoML Service in `service.py`. Run `bentoml serve` in your project directory to start the Service.
 
 ```bash
-$ bentoml serve .
+bentoml serve .
 
 2024-01-08T09:07:28+0000 [INFO] [cli] Prometheus metrics for HTTP BentoServer from "service:Resnet" can be accessed at http://localhost:3000/metrics.
 2024-01-08T09:07:28+0000 [INFO] [cli] Starting production HTTP BentoServer from "service:Resnet" listening on http://localhost:3000 (Press CTRL+C to quit)
