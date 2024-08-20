@@ -1,3 +1,11 @@
+<div align="center">
+    <h1 align="center">Serving a ResNet model with BentoML</h1>
+</div>
+
+ResNet (Residual Network) is a convolutional neural network that democratized the concepts of residual learning and skip connections. This is a BentoML example project, demonstrating how to build an image classification inference API server with a [ResNet model (ResNet-50 v1.5)](https://huggingface.co/microsoft/resnet-50) and BentoML.
+
+See [here](https://github.com/bentoml/BentoML/tree/main/examples) for a full list of BentoML example projects.
+
 ## Prerequisites
 
 - You have installed Python 3.9+ and `pip`. See the [Python downloads page](https://www.python.org/downloads/) to learn more.
