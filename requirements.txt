@@ -3,4 +3,4 @@ bentoml>=1.2.20
 numpy==1.26.4
 pillow==10.4.0
 torch==2.3.1
-transformers==4.42.4
+transformers==4.48.0
