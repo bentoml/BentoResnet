@@ -1,6 +1,6 @@
-accelerate==0.32.1
+accelerate==1.15.0
 bentoml>=1.2.20
 numpy==1.26.4
-pillow==10.4.0
-torch==2.3.1
-transformers==4.48.0
+pillow==13.0.0
+torch==2.13.0
+transformers==5.10.1
